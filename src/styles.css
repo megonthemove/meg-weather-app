@@ -39,3 +39,8 @@ input {
 form {
   text-align: center;
 }
+a {
+text-decoration: none;
+color: #b6cdbd;
+
+}
