@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"
+      integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>
+        📍
+        <div id="location">Denver</div>
+
+        <div id="emoji">☀️</div>
+        <span id="temp">75</span>°
+      </h1>
+      <h2></h2>
+      <hr />
+      <hr />
+  
+        <div class="row">
+          <div class="col">
+            Friday <br />
+            🌤 <br />
+            H:93° | L:63°<br /><br />
+          </div>
+          <div class="col">
+            Saturday<br />
+            🌤 <br />
+            H:93° | L:63°<br /><br />
+          </div>
+          <div class="col">
+            Sunday<br />
+            🌤 <br />
+            H:90° | L:60°<br /><br />
+          </div>
+          <div class="col">
+            Monday<br />
+            ☀️ <br />
+            H:89° | L:61°<br /><br />
+          </div>
+          <div class="col">
+            Tuesday<br />
+            ☀️ <br />
+            H:82° | L:54°
+          </div>
+        </div>
+      <br />
+      <form>
+        <input type="text" placeholder="Enter your city" id="city" />
+        <input type="submit" value="Search" /> <br /><br />
+        <input type="button" value="Current location" id="current" />
+      </form>
+    </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html> 
