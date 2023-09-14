@@ -1,32 +1,52 @@
 .container {
-  
-  padding: 70px 40px;
-  background-image: linear-gradient(
+ max-width: 600px;
+ margin: 30px auto;
+ padding: 20px;
+ border: 1px solid #EFEFEF; 
+ border-radius: 10px;
+ background-image: linear-gradient(
       45deg,
-      #efefef 25%,
-      rgba(239, 239, 239, 0) 25%,
-      rgba(239, 239, 239, 0) 75%,
-      #efefef 75%,
+      #efefef 30%,
+      rgba(239, 239, 239, 0) 30%,
+      rgba(239, 239, 239, 0) 70%,
+      #efefef 70%,
       #efefef
     ),
     linear-gradient(
       45deg,
-      #efefef 25%,
-      rgba(239, 239, 239, 0) 25%,
-      rgba(239, 239, 239, 0) 75%,
-      #efefef 75%,
+      #efefef 30%,
+      rgba(239, 239, 239, 0) 30%,
+      rgba(239, 239, 239, 0) 70%,
+      #efefef 70%,
       #efefef
     );
-  border: fff;
 }
+
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
 h1 {
-  
-  font-family: Georgia, "Times New Roman", Times, serif;
+  margin-bottom: 0;
+  font-size: 24px;
+  font-weight: 100;
 }
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+list-style: none;
+margin: 0;
+padding: 0;
+font-size: 16px;
+font-weight: 100;
+}
+
 .col {
- 
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-weight: 550;
+  font-weight: 250;
 }
 
 input {
@@ -34,7 +54,7 @@ input {
   background-color: white;
   border-radius: 7px;
   border-color: #b6cdbd;
-  font-weight: 400;
+  font-weight: 250;
 }
 form {
   text-align: center;
