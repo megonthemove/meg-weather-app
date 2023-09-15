@@ -27,7 +27,8 @@ function displayWeather(response) {
   document.querySelector(".description").innerHTML = response.data.condition.description;
   document.querySelector("#humidity").innerHTML = response.data.temperature.humidity;
   document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
-  document.querySelector("#emoji").innerHTML = response.data.condition.icon;
+  document.querySelector("#emoji").setAttribute("src", (response.data.condition.icon_url));
+  document.querySelector("#emoji").setAttribute("alt", (response.data.condition.description));
 }
 
 function searchLocation(city) {
