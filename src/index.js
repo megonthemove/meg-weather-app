@@ -23,23 +23,24 @@ function displayWeather(response) {
   let h1 = document.querySelector("#location");
   h1.innerHTML = city.value;
 
-  document.querySelector("#temp").innerHTML = Math.round(
-    response.data.main.temp
-  );
-  document.querySelector("#emoji").innerHTML = response.data.weather[0].main;
+  document.querySelector("#temp").innerHTML = Math.round(response.data.temperature.current);
+  document.querySelector(".description").innerHTML = response.data.condition.description;
+  document.querySelector("#humidity").innerHTML = response.data.temperature.humidity;
+  document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
+  document.querySelector("#emoji").innerHTML = response.data.condition.icon;
 }
 
 function searchLocation(city) {
-  let apiKey = "50c2acd53349fabd54f52b93c8650d37";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+  let apiKey = "faftf8c5db0d7963393a000835od40b9";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayWeather);
 }
 
 function searchGeo(position) {
   let lat = position.coords.latitude;
   let long = position.coords.longitude;
-  let apiKey = "50c2acd53349fabd54f52b93c8650d37";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}&units=imperial`;
+  let apiKey = "faftf8c5db0d7963393a000835od40b9";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayWeather);
 }
 
