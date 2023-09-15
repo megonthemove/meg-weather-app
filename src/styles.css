@@ -27,10 +27,10 @@ li:first-letter {
 }
 
 input {
-  color: #b6cdbd;
+  color: #605996;
   background-color: white;
   border-radius: 7px;
-  border-color: #b6cdbd;
+  border-color: #605996;
   font-weight: 250;
 }
 form {
@@ -38,7 +38,7 @@ form {
 }
 a {
 text-decoration: none;
-color: #b6cdbd;
+color: #605996;
 
 }
 
