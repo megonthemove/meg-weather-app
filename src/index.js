@@ -32,6 +32,7 @@ function displayWeather(response) {
   fahrenheitTemp = response.data.temperature.current;
 }
 
+
 function searchLocation(city) {
   let apiKey = "faftf8c5db0d7963393a000835od40b9";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
@@ -39,11 +40,24 @@ function searchLocation(city) {
 }
 
 function searchGeo(position) {
-  let lat = position.coords.latitude;
-  let long = position.coords.longitude;
+  let lat = response.data.coordinates.latitude;
+  let long = response.data.coordinates.longitude;
   let apiKey = "faftf8c5db0d7963393a000835od40b9";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayWeather);
+}
+
+function displayForecast(response) {
+  let city = document.querySelector("#city");
+  document.querySelector(".lowOne").innerHTML = response.data.daily.temperature[0].minimum;
+  document.querySelector(".highOne").innerHTML = response.data.daily[0].temperature.maximum;
+  
+}
+
+function searchForecast(city) {
+  let apiKey = "faftf8c5db0d7963393a000835od40b9";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=imperial`
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function submit(event) {
@@ -85,3 +99,5 @@ celsiusLink.addEventListener("click", displayCelsius);
 
 let fahrenheitLink = document.querySelector("#fahrenheit");
 fahrenheitLink.addEventListener("click", displayFahrenheit);
+
+searchLocation("Denver");
