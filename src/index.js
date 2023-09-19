@@ -36,7 +36,7 @@ function displayForecast(response) {
     forecastHTML = forecastHTML +
   `<div class="col">
   <div class="forecast-day">${formatDay(forecastDay.time)}</div>
-  <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${forecastDay.condition.icon}.png" width="40" height="40"></img><br />
+  <img src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${forecastDay.condition.icon}.png" width="40" height="40"></img><br />
   <span class="forecast-high">${Math.round(forecastDay.temperature.maximum)}°</span> | <span class="forecast-low">${Math.round(forecastDay.temperature.minimum)}°</span>
   </div>`;}
 });
@@ -52,20 +52,15 @@ axios.get(apiUrl).then(displayForecast);
 }
 
 function displayWeather(response) {
-  let cityElement = document.querySelector("#city");
-  let h1 = document.querySelector("#location");
-  cityElement.innerHTML = response.data.name;
-
+  document.querySelector("#location").innerHTML= response.data.city;
   document.querySelector("#temp").innerHTML = Math.round(response.data.temperature.current);
   document.querySelector(".description").innerHTML = response.data.condition.description;
   document.querySelector("#humidity").innerHTML = response.data.temperature.humidity;
   document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
   document.querySelector("#emoji").setAttribute("src", (response.data.condition.icon_url));
   document.querySelector("#emoji").setAttribute("alt", (response.data.condition.description));
-  fahrenheitTemp = response.data.temperature.current;
   getForecast(response.data.coordinates);
 }
-
 
 function searchLocation(city) {
   let apiKey = "faftf8c5db0d7963393a000835od40b9";
@@ -73,18 +68,10 @@ function searchLocation(city) {
   axios.get(apiUrl).then(displayWeather);
 }
 
-function searchGeo(position) {
-  let lat = response.data.coordinates.latitude;
-  let long = response.data.coordinates.longitude;
-  let apiKey = "faftf8c5db0d7963393a000835od40b9";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=imperial`;
-  axios.get(apiUrl).then(displayWeather);
-}
-
 function submit(event) {
   event.preventDefault();
-  let city = document.querySelector("#city").value;
-  searchLocation(city.value);
+  let cityElement = document.querySelector("#city");
+  searchLocation(cityElement.value);
 }
 
 let h2 = document.querySelector("h2");
