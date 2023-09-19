@@ -8,6 +8,13 @@ h1 {
   font-weight: 100;
 }
 
+h2 {
+  position: relative;
+  margin-left: 355px;
+  margin-top: -35px;
+  color: #605996;
+}
+
 ul {
   margin: 0;
   padding: 0;
@@ -70,23 +77,32 @@ color: #605996;
   font-weight: 250;
 }
 
+.information {
+  position: relative;
+  margin-right: 15px;
+}
 
 .units {
   position: relative;
-  font-size: 16px;
-  top: 15px;
+  font-size: 13px;
+  top: 19px;
 
+}
+
+.weather-forecast  {
+  text-align: center;
 }
 
 #emoji {
 
   line-height: 1;
   margin-left: -15px;
+  margin-right: 10px;
 }
 
 #temp {
-  font-size: 48px;
-  margin-top: -5px;
-  margin-left: -5px;
+  font-size: 42px;
+  margin-left: -15px;
   font-weight: 200;
+  margin-right: 5px;
 }

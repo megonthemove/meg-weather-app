@@ -41,10 +41,11 @@
       <span class="units"><a href="#" id="fahrenheit">°F</a>|<a href="#" id="celsius">°C</a></span>
       </div>
     </div>
+    <div class="information">
       <div class="col">
         <ul>
           <li>
-            Humidity: <span id="humidity">73</span>%
+            Humidity: <span id="humidity">73 </span> %
           </li>
           <li>
             Wind: <span id="wind">2</span> km/h
@@ -52,17 +53,26 @@
         </ul>
       </div>
       </div>
+      </div>
       <h2></h2>
       <hr />
       <hr />
-
+      <div class="weather-forecast">
+      <div class="row">
+        <div class="col-2">
+          <div class="forecast-day">Friday</div>
+          <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png" width="40" height="40" alt="clear" id="icon"></img><br />
+          <span class="forecast-high">93°</span> | <span class="forecast-low">63°</span>
+        </div>
+      </div>
+    </div>
       <br />
       <form>
         <input type="text" placeholder="Enter your city" id="city" autocomplete="off" />
-        <input type="submit" value="Search" /> <br /><br />
+        <input type="submit" value="Search" />
         <input type="button" value="Current location" id="current" />
       </form>
-      <br />
+      
       <br />
       <a href="https://github.com/megonthemove/meg-weather-app" target="_blank"> Coded </a> by Megan Linney
     </div>
