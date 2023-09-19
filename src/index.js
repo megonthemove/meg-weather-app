@@ -18,9 +18,12 @@ function formatDate() {
   return `${day} ${hours}:${minutes}`;
 }
 
-function displayForecast() {
-  let forecastHTML = `<div class="row">`;
+function displayForecast(response) {
+  console.log(response.data.daily);
+  
   let days = ["Monday", "Tuesday", "Wednesday", "Thursday"];
+  
+  let forecastHTML = `<div class="row">`;
   days.forEach(function(day){
   forecastHTML = forecastHTML +
   `<div class="col-2">
@@ -33,11 +36,11 @@ function displayForecast() {
   document.querySelector("#forecast").innerHTML = forecastHTML;
 }
 
-function getForecast () {
-  let city = document.querySelector("#city");
-  let apiKey = "faftf8c5db0d7963393a000835od40b9";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=imperial`;
-  console.log(apiUrl);
+function getForecast(coordinates) {
+  let apiKey = "faftf8c5db0d7963393a000835od40b9"
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude
+}&key=${apiKey}&units=imperial`;
+axios.get(apiUrl).then(displayForecast);
 }
 
 function displayWeather(response) {
@@ -52,7 +55,7 @@ function displayWeather(response) {
   document.querySelector("#emoji").setAttribute("src", (response.data.condition.icon_url));
   document.querySelector("#emoji").setAttribute("alt", (response.data.condition.description));
   fahrenheitTemp = response.data.temperature.current;
-  getForecast();
+  getForecast(response.data.coordinates);
 }
 
 
@@ -95,8 +98,6 @@ function displayFahrenheit(event) {
 let h2 = document.querySelector("h2");
 let now = new Date();
 h2.innerHTML = formatDate(now);
-
-displayForecast();
 
 let fahrenheitTemp = null;
 
