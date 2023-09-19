@@ -30,7 +30,6 @@ font-weight: 100;
 
 li:first-letter {
   text-transform: capitalize;
-
 }
 
 input {
@@ -40,13 +39,14 @@ input {
   border-color: #605996;
   font-weight: 250;
 }
+
 form {
   text-align: center;
 }
+
 a {
 text-decoration: none;
 color: #605996;
-
 }
 
 .container {
@@ -86,7 +86,7 @@ color: #605996;
   position: relative;
   font-size: 13px;
   top: 19px;
-
+  color: #605996;
 }
 
 .weather-forecast  {

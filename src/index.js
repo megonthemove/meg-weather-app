@@ -52,9 +52,9 @@ axios.get(apiUrl).then(displayForecast);
 }
 
 function displayWeather(response) {
-  let city = document.querySelector("#city");
+  let cityElement = document.querySelector("#city");
   let h1 = document.querySelector("#location");
-  h1.innerHTML = city.value;
+  cityElement.innerHTML = response.data.name;
 
   document.querySelector("#temp").innerHTML = Math.round(response.data.temperature.current);
   document.querySelector(".description").innerHTML = response.data.condition.description;
@@ -84,41 +84,14 @@ function searchGeo(position) {
 function submit(event) {
   event.preventDefault();
   let city = document.querySelector("#city").value;
-  searchLocation(city);
-}
-
-function getCurrentLocation(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(searchGeo);
-}
-
-function displayCelsius(event) {
-  event.preventDefault();
-  let celsiusTemp = (fahrenheitTemp - 32) * (5 / 9);
-  document.querySelector("#temp").innerHTML = Math.round(celsiusTemp);
-}
-
-function displayFahrenheit(event) {
-  event.preventDefault();
-  document.querySelector("#temp").innerHTML = Math.round(fahrenheitTemp);
+  searchLocation(city.value);
 }
 
 let h2 = document.querySelector("h2");
 let now = new Date();
 h2.innerHTML = formatDate(now);
 
-let fahrenheitTemp = null;
-
 let form = document.querySelector("form");
 form.addEventListener("submit", submit);
-
-let currentLocation = document.querySelector("#current");
-currentLocation.addEventListener("click", getCurrentLocation);
-
-let celsiusLink = document.querySelector("#celsius");
-celsiusLink.addEventListener("click", displayCelsius);
-
-let fahrenheitLink = document.querySelector("#fahrenheit");
-fahrenheitLink.addEventListener("click", displayFahrenheit);
 
 searchLocation("Denver");
