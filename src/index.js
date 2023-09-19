@@ -18,6 +18,28 @@ function formatDate() {
   return `${day} ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastHTML = `<div class="row">`;
+  let days = ["Monday", "Tuesday", "Wednesday", "Thursday"];
+  days.forEach(function(day){
+  forecastHTML = forecastHTML +
+  `<div class="col-2">
+  <div class="forecast-day">${day}</div>
+  <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png" width="40" height="40" alt="clear" id="icon"></img><br />
+  <span class="forecast-high">93°</span> | <span class="forecast-low">63°</span>
+  </div>`;
+});
+  forecastHTML = forecastHTML + `</div>`;
+  document.querySelector("#forecast").innerHTML = forecastHTML;
+}
+
+function getForecast () {
+  let city = document.querySelector("#city");
+  let apiKey = "faftf8c5db0d7963393a000835od40b9";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=imperial`;
+  console.log(apiUrl);
+}
+
 function displayWeather(response) {
   let city = document.querySelector("#city");
   let h1 = document.querySelector("#location");
@@ -30,6 +52,7 @@ function displayWeather(response) {
   document.querySelector("#emoji").setAttribute("src", (response.data.condition.icon_url));
   document.querySelector("#emoji").setAttribute("alt", (response.data.condition.description));
   fahrenheitTemp = response.data.temperature.current;
+  getForecast();
 }
 
 
@@ -45,19 +68,6 @@ function searchGeo(position) {
   let apiKey = "faftf8c5db0d7963393a000835od40b9";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayWeather);
-}
-
-function displayForecast(response) {
-  let city = document.querySelector("#city");
-  document.querySelector(".lowOne").innerHTML = response.data.daily.temperature[0].minimum;
-  document.querySelector(".highOne").innerHTML = response.data.daily[0].temperature.maximum;
-  
-}
-
-function searchForecast(city) {
-  let apiKey = "faftf8c5db0d7963393a000835od40b9";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=imperial`
-  axios.get(apiUrl).then(displayForecast);
 }
 
 function submit(event) {
@@ -85,6 +95,8 @@ function displayFahrenheit(event) {
 let h2 = document.querySelector("h2");
 let now = new Date();
 h2.innerHTML = formatDate(now);
+
+displayForecast();
 
 let fahrenheitTemp = null;
 
